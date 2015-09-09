@@ -378,7 +378,7 @@ return content;
 }
 
 
-getscholardata = function() {
+getscholardata = function getscholardata() {
 	var strURL;
 	var content="";
 	var obj=document.getElementsByTagName("body")[0];
@@ -396,6 +396,9 @@ getscholardata = function() {
 		for(i=0;i<gs_fl.length;i++) {
 			var a_tags=gs_fl[i].getElementsByTagName("a");
 			for(j=0;j<a_tags.length;j++) {
+				
+				console.log(a_tags[j].innerHTML);
+
 				if(a_tags[j].innerHTML == "Import into EndNote") {
 					strURL='http://scholar.google.com'+a_tags[j].getAttribute('href');
 					var req = new XMLHttpRequest();

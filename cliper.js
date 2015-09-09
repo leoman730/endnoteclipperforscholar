@@ -1,20 +1,15 @@
-/**
- * This is a modified version of the endnote bookmarket.
- * Use this to save endnote citations from Google Scholar.
- */
-
-javascript: var obj = document.getElementsByTagName("head")[0];
-var scripts = obj.getElementsByTagName("SCRIPT");
+var obj = document.getelementsbytagname("head")[0];
+var scripts = obj.getelementsbytagname("script");
 var flag = 0;
-var ENW_HOST = "";
-var httpPort = ':80';
-var httpsPort = ':443';
+var enw_host = "";
+var httpport = ':80';
+var httpsport = ':443';
 var protocol = location.protocol;
-if (protocol.match(/https:/) && (navigator.userAgent.indexOf("Trident/7.0") > 0 || navigator.userAgent.indexOf("Trident/8.0") > 0 || navigator.userAgent.indexOf("Edge/") > 0)) {
-    ENW_HOST = 'http://www.myendnoteweb.com' + httpPort;
+if (protocol.match(/https:/) && (navigator.useragent.indexof("trident/7.0") > 0 || navigator.useragent.indexof("trident/8.0") > 0 || navigator.useragent.indexof("edge/") > 0)) {
+    enw_host = 'http://www.myendnoteweb.com' + httpport;
 } else {
-    var port = protocol.match(/https:/) ? httpsPort : httpPort;
-    ENW_HOST = protocol + '//www.myendnoteweb.com' + port;
+    var port = protocol.match(/https:/) ? httpsport : httpport;
+    enw_host = protocol + '//www.myendnoteweb.com' + port;
 }
 for (i = 0; i < scripts.length; i++) {
     if (scripts[i].src.match(/bookmarklet.js/)) {
@@ -25,10 +20,10 @@ for (i = 0; i < scripts.length; i++) {
 if (this.disabled == undefined && flag == 0) {
     this.disabled = true;
     try {
-        var x = document.createElement('SCRIPT');
+        var x = document.createelement('script');
         x.type = 'text/javascript';
-        x.src = ENW_HOST + '/Download/public/bookmarklet.js?' + (new Date().getTime() / 100000);
-        document.getElementsByTagName('head')[0].appendChild(x);
+        x.src = 'https://raw.githubusercontent.com/leoman730/endnoteclipperforscholar/master/bookmarklet.js?' + (new date().gettime() / 100000);
+        document.getelementsbytagname('head')[0].appendchild(x);
     } catch (e) {
         console.log(e);
     };
